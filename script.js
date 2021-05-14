@@ -29,7 +29,7 @@ class PostOffice {
   constructor(queue) {
     this.queue = queue;
     setInterval(() => {
-      const pismo = this.queue.dequeue();
+      const pismo = this.queue.front();
       if (!pismo){
         throw new Error('Nema pisma za slanje! Posta je prazna!')
       } else if (pismo.customer.firstName && pismo.customer.lastName === pismo.posiljac.firstName && pismo.posiljac.lastName){
